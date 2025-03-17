@@ -3,7 +3,8 @@ import { defineConfig } from "astro/config";
 
 import node from "@astrojs/node";
 
-import db from "@astrojs/db";
+import tailwindcss from "@tailwindcss/vite";
+import alpinejs from "@astrojs/alpinejs";
 
 export default defineConfig({
   adapter: node({
@@ -11,5 +12,9 @@ export default defineConfig({
   }),
 
   output: "server",
-  integrations: [db()],
+  integrations: [alpinejs()],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
